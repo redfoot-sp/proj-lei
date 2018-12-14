@@ -29,7 +29,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+#############################################################################################################
+# INSERIDO laws e django.contrib.postgres EM INSTALLED_APPS
+#############################################################################################################
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
+    'laws',
 ]
 
 MIDDLEWARE = [
@@ -72,11 +76,26 @@ WSGI_APPLICATION = 'leis.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+##########################################################################################################
+#CONFIGURAÇÃO ORIGINAL COM BANCO SQLITE
+##########################################################################################################
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#   }
+#}
+##########################################################################################################
+#CONFIGURAÇÃO COM BANCO POSTGRESQL 9
+##########################################################################################################
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'db_laws',
+        'USER': 'leis',
+        'PASSWORD': '090969',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -102,10 +121,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
+##########################################################################################################
+#INSERIDA CONFIGURAÇÃO PARA PORTUGUÊS - BRASIL
+##########################################################################################################
+LANGUAGE_CODE = 'pt-br'
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 

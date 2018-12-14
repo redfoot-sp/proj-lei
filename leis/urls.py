@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from laws.views import leis, decretos, complementar, ordinaria, organica, pesq_lei
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', leis),
+    path('decretos/', decretos),
+    path('complementar/', complementar),
+    path('ordinaria/', ordinaria),
+    path('organica/', organica),
+    path('pesquisa/', pesq_lei),
 ]
