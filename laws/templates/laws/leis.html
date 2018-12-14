@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang=pt-br>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="arquivo de leis, Leme, decretos">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/mine.css">
+        <title> TESTE - Arquivo Eletrônico de Leis </title>
+    </head>
+        <body style="width: 1200px; height: 800px; margin: auto;">
+            <header>
+                <nav class="navbar nav-inverse">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <h1 align="rigth">Arquivo Eletrônico de Leis</h1>
+                            <a href="#" alt="Arquivo Eletrônico de Leis" title="Brasao de Leme">{% load static %}<img id="brasao" src="{% static "img/brasao.jpg" %}" height="42" width="42"></a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="menu_lista">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="link_menu"><a href="sobre">Sobre</a></li>
+                                <li class="link_menu"><a href="navegar">Navegar</a></li>
+                                <li class="link_menu"><a href="blast">BLAST</a></li>
+                                <li class="link_menu"><a href="help">Ajuda</a></li>
+                            </ul>
+			             </div>
+                    </div>       
+                </nav>
+            </header>
+            <section>
+                <aside style="width: 200px; height: 500px; float: left; background: #007bff; font-family: Arial, Helvetica, sans-serif; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
+                    <p><a class="btn btn-primary btn-lg" role="button" href="/decretos" style="width: 200px">Decretos</a></p>
+                    <p><a class="btn btn-primary btn-lg" role="button" href="/complementar" style="width: 200px">Lei Complementar</a></p>
+                    <p><a class="btn btn-primary btn-lg" role="button" href="/ordinaria" style="width: 200px">Lei Ordinária</a></p>
+                    <p><a class="btn btn-primary btn-lg" role="button" href="/organica" style="width: 200px">Lei Orgânica</a></p>
+                </aside>
+                <div style="width: 1000px; height: 500px; float: right; background: #F0F0F0; font-family: Arial, Helvetica, sans-serif; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
+                    <h2 align="center">Ultimas Leis e Decretos publicados</h2>
+                       <ul style="list-style-type:none">
+                       {% for lista in Leis %}
+                           <li>{{ lista }}</li>
+                       {% endfor %}
+                       </ul>
+                </div>
+            </section>
+    <footer style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; text-align: center; color: #000000;">
+        <p>Secretaria de Assuntos juridicos</p>
+        <p>Secretaria da Administração</p>
+        <p>Coordenadoria de Atendimento e Suporte Técnico em Informática</p>
+    </footer>
+        </body>    
+</html>
